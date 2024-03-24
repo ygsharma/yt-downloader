@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<body class="bg-success">
+    <!-- main navbar -->
+    <nav class="navbar navbar-light">
+        <div class="container-fluid justify-content-center">
+            <a class="navbar-brand" href="/">
+                <!-- <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24"
+                    class="d-inline-block align-text-top"> -->
+                <h3 class="text-light">Youtube-Video</h3>
+            </a>
+        </div>
+    </nav>
+
+    <hr width="100%" color="grey">
+
+    <!-- secondary navbar -->
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active text-light" href="#">Youtube Video Downloader</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" href="#">Youtube Mp3 Downloader</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-light" href="#">Youtube Playlist Downloader</a>
+        </li>
+    </ul>
+
+    <hr width="100%" color="grey">
+
+    <!-- input text and button with some infomation -->
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center text-light">YouTube Video MP4 Downloader</h4>
+                <p class="lead text-center text-light">Easy & simple interface, designed with users in mind, no
+                    registrations, no additional software, download YouTube videos</p>
+                <div class="input-group mt-5 w-50">
+                    <input type="text" class="form-control"
+                        placeholder="Try our built-in search - just start typing something"
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-primary" type="button" id="button-addon2">Download</button>
+                </div>
+            </div>
+            <p class="text-center mt-3 text-light">Type something in the box for Youtube video search Or insert
+                video URL and hit Convert button</p>
+            <p class="text-center">Or insert video URL and hit Convert button</p>
+            <p class="text-center text-light">You can start with Top 20 most popular music videos..</p>
+        </div>
+    </div>
+    </div> -->
+
+
+    <!-- 
+    <form action="download" method="post">
+        {% csrf_token %}
+
+        <label for="link">Enter URL:</label>
+        <input type="text" id="link" name="link"><br><br>
+        <input type="submit" value="Submit">
+    </form> -->
+
+    <!-- form for url input and download video -->
+    <div class="container-fluid text-light">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">YouTube Video MP4 Downloader</h4>
+                <form action="download" method="post">
+                    {% csrf_token %}
+                    <p class="text-center">Easy & simple interface, designed with users in mind, no registrations,
+                        no additional software, download YouTube videos</p>
+                    <div class="input-group mb-3">
+                        <input type="text" id="url" name="url" class="form-control"
+                            placeholder="Try our built-in search - just start typing something"
+                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-primary" type="submit" id="button-addon2">Download</button>
+                    </div>
+                    <p class="text-center mt-3">Type something in the box for Youtube video search Or insert video URL
+                        and hit Convert button</p>
+                    <p class="text-center">You can start with Top 20 most popular music videos..</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% block 'body' %}
+
+    {% endblock %}
+
+    <div class="download-steps">
+        <div class="container text-center">
+            <h2>How to download from Youtube to MP4 in a simple manner?</h2>
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-3">
+                    <div class="step-box">1//</div>
+                    <p class="text-light">use the white box above to type in your video title or artist name, then
+                        locate video you want,
+                        or simply copy-paste video URL here & press Download</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="step-box">2//</div>
+                    <p class="text-light">it'll be a moment while we check out the page you've given us or the video you
+                        selected, and come
+                        back with the possible download options and formats</p>
+                </div>
+                <div class="col-md-3">
+                    <div class="step-box">3//</div>
+                    <p class="text-light">now you can pick the size and dimensions and download, press Get Link and
+                        proceed to download
+                        Youtube video to your device</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4 pb-4"></div>
+
+
+    <!-- Footer -->
+    <div class="fixed-bottom bg-success">
+        <hr width="100%" color="grey">
+        <footer class="footer bg-success text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="#" class="text-white text-decoration-none me-2">Contact</a>
+                        <a href="#" class="text-white text-decoration-none me-2">Privacy</a>
+                        <a href="#" class="text-white text-decoration-none me-2">TOS</a>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col text-center mt-2">
+                        © 2024 youtube-downloader.com
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+</html>

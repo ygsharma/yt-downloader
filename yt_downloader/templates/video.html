@@ -1,0 +1,136 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block 'body' %}
+
+<!-- <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 mb-4 rounded">
+            <div class="card">
+                <img src="{{thumbnail}}" class="card-img-top" alt="Video Thumbnail">
+                <div class="card-body">
+                    <h5 class="card-title">{{ title }}</h5>
+                    <p class="card-text">Dua Lipa ★ Duration: 00:03:07</p>
+                    <div class="d-flex flex-row justify-content-between">
+                        <div class="dropdown flex-grow-1 mr-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ videos|last|first }} ({{ videos|last|last }} MB)
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                mp4
+                                {% for video in videos %}
+                                <li><a class="dropdown-item" href="#"> {{ video.0 }} ({{ video.1 }} MB)</a></li>
+                                {% endfor %}
+                                mp3
+                                {% for audio in audios %}
+                                <li><a class="dropdown-item" href="#"> {{ audio.0 }} ({{ audio.1 }} MB)</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v={{video.id}}" class="btn btn-primary flex-shrink-1">Get
+                            Download Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center"> <!-- Center the column in the row -->
+            <div class="col-md-4 mb-4 rounded"> <!-- You can adjust the size of the column as per your design -->
+                <div class="card">
+                    <img src="{{ thumbnail }}" class="card-img-top" alt="Video Thumbnail">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ title }}</h5>
+                        <p class="card-text"> ★ Duration: {{ duration }} mins</p>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="dropdown flex-grow-1 mr-2">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ videos|last|first }} ({{ videos|last|last }} MB)
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <h6 class="dropdown-header">mp4</h6>
+                                    </li>
+                                    {% for video in videos %}
+                                    <li><a class="dropdown-item" href="#"> {{ video.0 }} ({{ video.1 }} MB)</a></li>
+                                    {% endfor %}
+                                    <li>
+                                        <h6 class="dropdown-header">mp3</h6>
+                                    </li>
+                                    {% for audio in audios %}
+                                    <li><a class="dropdown-item" href="#"> {{ audio.0 }} ({{ audio.1 }} MB)</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <a action="get" href="https://www.youtube.com/watch?v={{ video_id }}"
+                                class="btn btn-primary flex-shrink-1">Get
+                                Download Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'js/download.js' %}"></script>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center"> <!-- Center the column in the row -->
+            <div class="col-md-4 mb-4 rounded"> <!-- You can adjust the size of the column as per your design -->
+                <div class="card">
+                    <img src="{{ thumbnail }}" class="card-img-top" alt="Video Thumbnail">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ title }}</h5>
+                        <p class="card-text"> ★ Duration: {{ duration }} mins</p>
+                        <div class="d-flex flex-row justify-content-between">
+                            <div class="dropdown flex-grow-1 mr-2">
+                                <!-- Dropdown Trigger Button -->
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Select Resolution
+                                </button>
+
+                                <!-- Dropdown Menu -->
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <h6 class="dropdown-header">mp4</h6>
+                                    </li>
+                                    {% for video in videos %}
+                                    <!-- Add a data attribute to store the video resolution and size -->
+                                    <li><a class="dropdown-item" data-resolution="{{ video.0 }}"
+                                            data-size="{{ video.1 }}" href="#">{{ video.0 }} ({{
+                                            video.1 }} MB)</a></li>
+                                    {% endfor %}
+                                    <li>
+                                        <h6 class="dropdown-header">mp3</h6>
+                                    </li>
+                                    {% for audio in audios %}
+                                    <li><a class="dropdown-item" data-audio="{{ audio.0 }}" data-size="{{ audio.1 }}"
+                                            href="#">{{ audio.0 }} ({{ audio.1
+                                            }} MB)</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <a href="/download 'download_video' "
+                                class="btn btn-primary flex-shrink-1">Get
+                                Download Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

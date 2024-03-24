@@ -1,0 +1,16 @@
+.download-steps {
+     /* Similar to the orange background in the image */
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+}
+.step-box {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* nav {
+    height: 30px;
+} */

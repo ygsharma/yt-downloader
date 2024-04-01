@@ -17,7 +17,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # youtube api credentials
-YOUTUBE_API_KEY = 'AIzaSyB5dQCJqH4ut1Nbut1T6Aqr0_cxHmjtv0o'
+YOUTUBE_API_KEY = ''
 
 # Templates path
 # TEMPLATE_DIR = os.path.join(BASE_DIR,’templates’)
